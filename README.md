@@ -47,20 +47,25 @@ Silicon for M1 and later, Intel for older Macs.
 
 1. Download the `.dmg` for your Mac from the
    [latest release](https://github.com/thedesignmvp/flowgen-releases/releases/latest).
-2. This beta is not signed by Apple yet, so macOS will say Flowgen "is damaged
-   and can't be opened". It is not damaged. Before you open the DMG, run this
-   once in Terminal:
+2. Open the DMG and drag Flowgen to Applications. **Don't open Flowgen yet.**
+3. This beta is not signed by Apple yet, so macOS would say Flowgen "is damaged
+   and can't be opened". It is not damaged. Run this once in Terminal:
 
    ```bash
-   xattr -d com.apple.quarantine ~/Downloads/Flowgen-*.dmg
+   xattr -dr com.apple.quarantine /Applications/Flowgen.app
    ```
 
-3. Open the DMG and drag Flowgen to Applications.
 4. Open Flowgen and paste a key on the first screen. A
    [fal key](https://fal.ai/dashboard/keys) covers every model.
 
-Clear the flag on the DMG, not on the installed app. macOS blocks Terminal from
-changing anything in Applications, even with `sudo`.
+The command only works before the first launch. Once macOS has opened the app,
+it protects it, and the command fails with "Operation not permitted", even with
+`sudo`. If that happens, clear the flag on the DMG instead, then drag Flowgen
+from the DMG to Applications again and replace it:
+
+```bash
+xattr -d com.apple.quarantine ~/Downloads/Flowgen-*.dmg
+```
 
 ## Updates
 
