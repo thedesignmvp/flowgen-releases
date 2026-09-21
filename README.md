@@ -4,9 +4,9 @@
 
 # Flowgen
 
-**A canvas for AI images and video, on your own Mac, with your own keys.**
+**A canvas for AI images and video, on your own computer, with your own keys.**
 
-[Download for Apple Silicon](https://getflowgen.app/download/mac-arm64) · [Download for Intel](https://getflowgen.app/download/mac-intel) · [All releases](https://github.com/thedesignmvp/flowgen-releases/releases) · [getflowgen.app](https://getflowgen.app)
+[Download for Apple Silicon](https://getflowgen.app/download/mac-arm64) · [Download for Intel](https://getflowgen.app/download/mac-intel) · [Download for Windows](https://getflowgen.app/download/windows) · [All releases](https://github.com/thedesignmvp/flowgen-releases/releases) · [getflowgen.app](https://getflowgen.app)
 
 </div>
 
@@ -30,7 +30,8 @@ It runs on your computer, not ours:
   ChatGPT plan through Codex. You pay the provider directly at their prices.
   Every node shows its estimated cost before you run it.
 - **Your files stay local.** Workflows, generated media and Brand Kits live in
-  an embedded database in `~/Library/Application Support/Flowgen`. Prompts and
+  an embedded database in `~/Library/Application Support/Flowgen` on a Mac and
+  `%APPDATA%\Flowgen` on Windows. Prompts and
   images go only to the provider whose model you run.
 - **Brand Kits.** Point Flowgen at your website and it reads your logo, palette,
   fonts and voice, then uses them in any prompt with an `@` tag.
@@ -40,7 +41,7 @@ It runs on your computer, not ours:
 Free for 5 saved workflows and 100 runs a month. A $25 licence removes both
 limits and includes two years of updates.
 
-## How to install
+## How to install on a Mac
 
 You need a Mac on macOS 11 or later. Pick the build for your chip: Apple
 Silicon for M1 and later, Intel for older Macs.
@@ -67,12 +68,25 @@ from the DMG to Applications again and replace it:
 xattr -d com.apple.quarantine ~/Downloads/Flowgen-*.dmg
 ```
 
+## How to install on Windows
+
+You need Windows 10 or 11 on an x64 PC.
+
+1. Download `Flowgen-<version>-Setup.exe` from the
+   [latest release](https://github.com/thedesignmvp/flowgen-releases/releases/latest).
+2. This beta is not signed yet, so SmartScreen says "Windows protected your
+   PC". Click **More info**, then **Run anyway**.
+3. Follow the installer, open Flowgen and paste a key on the first screen.
+
 ## Updates
 
-You only install by hand once. Each time Flowgen opens, it checks for a new
+On a Mac you only install by hand once. Each time Flowgen opens, it checks for a new
 version, downloads it in the background, checks it against the published
 SHA-512, and shows a Restart button. Click it and Flowgen reopens on the new
 version. There's no Terminal step for updates.
+
+On Windows, Flowgen tells you when a new version is out, and you download and
+run the new installer yourself. Your workflows and keys stay where they are.
 
 The check is one plain request for a static file, with no identifier and no
 data about you or your work. You can turn it off in Settings.
